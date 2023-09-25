@@ -1,5 +1,7 @@
 package com.perscholas.java_basics;
 
+import java.text.DecimalFormat;
+
 public class JavaBasicsClass {
 
 	public static void main(String[] args) {
@@ -107,20 +109,25 @@ public class JavaBasicsClass {
 			float coffee = 4.75F;
 			float cappuccino = 4.25F;
 			float espresso = 3.99F;
-			float greenTea = 3.28F;
+		
 			
 		//Create two more variables called sub-total and totalSale 
 			
 			//complete an “order” for three items of the first product, 
 			//four items of the second product, and two items of the third product
 			
+			DecimalFormat df = new DecimalFormat("0.00");
 			float subTotal = (3*coffee) + (4*cappuccino) + (2*espresso);
 			
+			System.out.println("Total sale\t: $" + df.format(subTotal));
+			
 			final float SALES_TAX = (float) (subTotal * 0.002);
+			System.out.println("Sales Tax\t: $" + df.format(subTotal));
+			
 			
 			float totalSale = subTotal + SALES_TAX;
 			
-			System.out.print("Total sale amount for this service is: $" + totalSale);
+			System.out.println("Total sale\t: $" + df.format(totalSale));
 		
 		
 	}
