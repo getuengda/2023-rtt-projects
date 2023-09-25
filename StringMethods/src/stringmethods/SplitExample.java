@@ -27,6 +27,23 @@ public class SplitExample {
 		
 		// converting array to string and printing it
 		System.out.println("result = " + Arrays.toString(result));
+
+		String cav = "a, b, c, d, e, f,g, h, i, j, k";
+		String[] comas = cav.split(",");
+		System.out.println("result = " + Arrays.toString(comas));
+		
+		//First and last name
+		//Split into first name and last name
+		
+		String name = "Firstname Lastname";
+		String[] names = name.split(" ");
+		System.out.println("result = " + Arrays.toString(names));
+		
+		String fullName = "Getanesh Aberra";
+		String[] myName = fullName.split(" ");
+		System.out.println("result = " + Arrays.toString(myName));
+		
+		
 		
 		
 	}
