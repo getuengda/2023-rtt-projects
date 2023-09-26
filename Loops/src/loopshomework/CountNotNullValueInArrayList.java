@@ -1,10 +1,13 @@
 package loopshomework;
 
-public class CountOfNullValueInArrayList {
+import java.util.ArrayList;
+import java.util.List;
+
+public class CountNotNullValueInArrayList {
 
 	public static void main(String[] args) {
 		int arraySize = 10;
-
+		
 		// this create a new array of type String each with 10 elements ... 0 to 9
 
 		String[] stringArray = new String[arraySize];
@@ -17,13 +20,13 @@ public class CountOfNullValueInArrayList {
 		stringArray[9] = "Nine";
 
 		// write a for loop that counts the number of nulls in the array
-		int countOfNullValue = 0;
+		int countOfNotNullValue = 0;
 		for (String value : stringArray)
-			if (value == null) {
-				countOfNullValue++;
+			if (value != null) {
+				countOfNotNullValue++;
 			}
-		System.out.println("The number of null value is: " + countOfNullValue);
-
+		System.out.println("The number of null value is: " + countOfNotNullValue);
+		
 	}
 
 }

@@ -1,6 +1,6 @@
 package loopshomework;
 
-public class CountOfNullValueInArrayList {
+public class LastPositionOfNullValue {
 
 	public static void main(String[] args) {
 		int arraySize = 10;
@@ -15,14 +15,15 @@ public class CountOfNullValueInArrayList {
 		stringArray[6] = "Six";
 		stringArray[7] = "Seven";
 		stringArray[9] = "Nine";
-
-		// write a for loop that counts the number of nulls in the array
-		int countOfNullValue = 0;
-		for (String value : stringArray)
-			if (value == null) {
-				countOfNullValue++;
-			}
-		System.out.println("The number of null value is: " + countOfNullValue);
+		
+		int lastPositionOfNullValue = 0;
+		for(int j = stringArray.length - 1; j >= 0; j--) {
+			if (stringArray[j] == null) {
+				lastPositionOfNullValue = j;
+				break;
+	        }
+	    }
+		System.out.println("Position of the last null value is: " + lastPositionOfNullValue);
 
 	}
 

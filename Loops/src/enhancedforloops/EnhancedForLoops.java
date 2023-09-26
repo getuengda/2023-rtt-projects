@@ -29,9 +29,6 @@ public class EnhancedForLoops {
 		for(double numbers : doubleArray) {
 			System.out.println(numbers);
 		}
-	
-		
-		
 
 	}
 
