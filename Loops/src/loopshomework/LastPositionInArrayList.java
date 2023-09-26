@@ -6,7 +6,7 @@ public class LastPositionInArrayList {
 
 		int arraySize = 10;
 
-		// this create a new array of type double with 20 elements ... 0 to 19
+		// this create a new array of type double and String with 10 elements each ... 0 to 9
 		double[] doubleArray = new double[arraySize];
 
 		String[] stringArray = new String[arraySize];

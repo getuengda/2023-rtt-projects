@@ -5,7 +5,7 @@ public class LoopOverEntireArrayWithPosition {
 	public static void main(String[] args) {
 		int arraySize = 11;
 
-		// this create a new array of type double with 20 elements ... 0 to 19
+		// the create a new array of type double and next one String with 11 elements ... 0 to 10
 		double[] doubleArray = new double[arraySize];
 
 		String[] stringArray = new String[arraySize];

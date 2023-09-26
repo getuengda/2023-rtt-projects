@@ -9,7 +9,7 @@ public class StringArrayDemoOne {
 	public static void main(String[] args) {
 		int arraySize = 11;
 
-		// this creats a new array of type double with 20 elements ... 0 to 19
+		// this create a new array of type double and String each with 11 elements ... 0 to 10
 		double[] doubleArray = new double[arraySize];
 
 		String[] stringArray = new String[arraySize];
@@ -23,7 +23,7 @@ public class StringArrayDemoOne {
 
 		int count = 0;
 		int sumNullCount = 0;
-
+		
 		System.out.println("The value in position 0 is: " + stringArray[0]);
 		System.out.println("The value in position 7 is: " + stringArray[7]);
 		System.out.println("The value in position 10 is: " + stringArray[10]);
@@ -48,7 +48,7 @@ public class StringArrayDemoOne {
 			}
 		System.out.println("The number of times null value is: " + sumNullCount);
 			
-		// THE FOLLOWING HOMEWORK IS COMPLETED IN SEPARATE CLASSES
+		// THE FOLLOWING HOMEWORK IS COMPLETED IN SEPARATE CLASSES inside loops package
 		// Write a for loop that tells me the location of the first null in the way
 
 		// Write a for loop that tells me how many values not null
