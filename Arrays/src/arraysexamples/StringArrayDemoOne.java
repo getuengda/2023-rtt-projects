@@ -9,7 +9,8 @@ public class StringArrayDemoOne {
 	public static void main(String[] args) {
 		int arraySize = 11;
 
-		// this create a new array of type double and String each with 11 elements ... 0 to 10
+		// this create a new array of type double and String each with 11 elements ... 0
+		// to 10
 		double[] doubleArray = new double[arraySize];
 
 		String[] stringArray = new String[arraySize];
@@ -23,7 +24,7 @@ public class StringArrayDemoOne {
 
 		int count = 0;
 		int sumNullCount = 0;
-		
+
 		System.out.println("The value in position 0 is: " + stringArray[0]);
 		System.out.println("The value in position 7 is: " + stringArray[7]);
 		System.out.println("The value in position 10 is: " + stringArray[10]);
@@ -39,16 +40,9 @@ public class StringArrayDemoOne {
 		for (String value : stringArray) {
 			System.out.println("The value of pos is: " + value);
 		}
-
-		// write a for loop that counts the number of nulls in the array
-		System.out.println("\n///// Count Null values ////");
-		for (String value : stringArray)
-			if (value == null) {
-				sumNullCount = sumNullCount + 1;
-			}
-		System.out.println("The number of times null value is: " + sumNullCount);
-			
 		// THE FOLLOWING HOMEWORK IS COMPLETED IN SEPARATE CLASSES inside loops package
+		// write a for loop that counts the number of nulls in the array
+
 		// Write a for loop that tells me the location of the first null in the way
 
 		// Write a for loop that tells me how many values not null
@@ -59,7 +53,7 @@ public class StringArrayDemoOne {
 		// down
 
 		// Loop over the array and count the number of letters that are not vowels
-	
+
 	}
 
 }
