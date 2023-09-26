@@ -5,7 +5,7 @@ public class PositionOfFirstNullValue {
 	public static void main(String[] args) {
 		int arraySize = 10;
 
-		// this create a new array of type double with 20 elements ... 0 to 19
+		// the create a new array of type double and next one String with 10 elements ... 0 to 10
 		double[] doubleArray = new double[arraySize];
 
 		String[] stringArray = new String[arraySize];
@@ -19,7 +19,7 @@ public class PositionOfFirstNullValue {
 		
 		// Write a for loop that tells me the location of the first null value in the array
 		int firstNull = 0;
-		int i = 0;
+		
 		//Iterate over the array list to observe where the null value start for validation
 		for(String value : stringArray) {
 			System.out.println("List of all array: " + value);
