@@ -48,13 +48,32 @@ public class SubstringDemo {
 		// substring of the characters between the first and last space of the string
 		String substringInmiddile = example.substring(positionOfFirstSpace, positionofLastSpace);
 		System.out.println(substringInmiddile);
-		// do the same thing to find the substring of the first and last vowel of the
+		// do the same thing to find the substring of the first and last space of the
 		// string
 		int substringInTheMiddile = example.lastIndexOf(substringInmiddile);
 
 		String substringAtFirstandEnd = example.substring(substringInTheMiddile);
 		System.out.println(substringAtFirstandEnd);
 
+		// do the same thing to find the substring of the first and last vowel of the
+		// string
+		int firstVowelPosition = 0;
+		int lastVowelPosition = 0;
+		//To get the first vowel
+		for (int i = 0; i < example.length(); i++) {
+			if (example.charAt(i) == 'a' || example.charAt(i) == 'e' || example.charAt(i) == 'i'
+					|| example.charAt(i) == 'o' || example.charAt(i) == 'u') {
+				firstVowelPosition = i;
+				break;
+			}
+		}
+		//To get the last vowel
+		for(int j = 0; j < example.length(); j++) {
+		if(example.charAt(j) == 'a' || example.charAt(j) == 'e' || example.charAt(j) == 'i'
+				|| example.charAt(j) == 'o' || example.charAt(j) == 'u'){
+			lastVowelPosition = j;
+		}}
+		System.out.println("Substring between the first vowel:  " + example.charAt(firstVowelPosition) + " and the last vowel is: " + example.charAt(lastVowelPosition) + " ---- " + example.substring(firstVowelPosition, lastVowelPosition));
 		// use the string.charAt function and use a for loop to loop over the entire
 		// string
 		// and print out each character with a new line after it.
@@ -69,9 +88,15 @@ public class SubstringDemo {
 		// using only indexOf(" ") print the substring that contains the word "is"
 		// use 2 substrings to do this.
 
-		String substring = example.substring(example.indexOf("is"), positionOfFirstSpace);
-		
-		System.out.println(substring);
+		// String substring = example.substring(example.indexOf("is"),
+		// positionOfFirstSpace);
+
+		// System.out.println(substring);
+
+		String is = example.substring(example.indexOf(" ") + 1);
+		System.out.println("The first substring: " + is);
+		is = is.substring(0, is.indexOf(" "));
+		System.out.println(is);
 
 		// https://edabit.com/challenges
 		// Change to Java / Very Easy or Easy / Strings and try to do some of them
