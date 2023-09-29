@@ -98,7 +98,7 @@ public class CoffeeShop {
 		System.out.println("Sales Tax\t: " + df.format(subTotal));
 
 		float totalSale = subTotal + SALES_TAX;
-		System.out.println("Total sale\t\t: " + df.format(totalSale));
+		System.out.println("Total sale\t: " + df.format(totalSale));
 
 	}
 
@@ -117,7 +117,7 @@ public class CoffeeShop {
 	}
 
 	public void userSelectProduct() {
-		System.out.print("ENter product name to order: ");
+		System.out.print("Enter product name to order: ");
 		String orderSelection = input.nextLine();
 
 		for (Product product : products) {

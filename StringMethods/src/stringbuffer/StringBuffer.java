@@ -1,4 +1,5 @@
 package stringbuffer;
+import java.lang.*;
 
 public class StringBuffer {
 
