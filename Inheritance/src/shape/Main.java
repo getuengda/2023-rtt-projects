@@ -48,7 +48,6 @@ public class Main {
 		shapes.add(squ);
 		
 		
-		
 		for (Shape shape: shapes) {
 			System.out.println("The area for shape " + shape.getName() + " is " + shape.calculateArea());
 			System.out.println("The perimeter for shape " + shape.getName() + " is " + shape.calculatePerimeter());
