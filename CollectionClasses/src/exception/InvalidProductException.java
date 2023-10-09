@@ -1,11 +1,10 @@
 package exception;
 
-public class InvalidProductException extends Exception
-{
-	   public InvalidProductException(String s)
-	   {
+@SuppressWarnings("serial")
+public class InvalidProductException extends Exception {
+	   public InvalidProductException(String str){
 	       // Call constructor of parent Exception
-	       super(s);
+	       super(str);
 	   }
 
 }

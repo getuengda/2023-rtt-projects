@@ -14,7 +14,7 @@ public class MyCustomerException extends Exception {
 	}
 
 	public String toString() {
-		return (" --->> MyException Occurred: " + str1);
+		return (" -->> MyException Occurred: " + str1);
 	}
 
 }
