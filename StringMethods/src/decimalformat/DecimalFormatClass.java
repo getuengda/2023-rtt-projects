@@ -13,9 +13,10 @@ public class DecimalFormatClass {
 		 */
 		
 		//String pattern = "####,####.##";
+		String pattern = "###.##";
 		double number = 123456789.123;
 		
-		DecimalFormat numberFormat = new DecimalFormat();
+		DecimalFormat numberFormat = new DecimalFormat(pattern);
 		System.out.println(number);
 		System.out.println(numberFormat.format(number));
 		
