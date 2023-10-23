@@ -3,8 +3,11 @@ package jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.sql.Statement;
+
 
 public class OrdersDatabase {
 	
@@ -28,13 +31,16 @@ public class OrdersDatabase {
 			// Let's work on Insert new data to our table
 			System.out.println("Enter order: ");
 			System.out.println("1. Insert order");
+			System.out.println("2. Select order");
 			int order = Integer.parseInt(scanner.nextLine());
 			
 			switch(order) {
 			case 1: 
 				orderDatabase.insertOrder();
 				break;
-				
+			case 2: 
+				orderDatabase.selectOrder();
+				break;	
 				default:
 					break;
 			}
@@ -82,6 +88,23 @@ public class OrdersDatabase {
 		if(rows > 0) {
 			System.out.println("New Orders inserted successfully.");
 		}
+		}
+		// second operation select from table
+		public void selectOrder() throws SQLException{
+			System.out.println("Select order is called");
+			String sql = "select * from neworders where order_type = 'laptop'";
+			Statement stmt = con.createStatement();
+			ResultSet result = stmt.executeQuery(sql);
+			
+			while(result.next()) {
+				// order_name,order_type,order_by,status
+				String orderName = result.getString("order_name");
+				String orderName2 = result.getString("order_name");
+				String orderType = result.getString("order_type");
+				System.out.println();
+				
+			}
+			
 	}
 	
 }

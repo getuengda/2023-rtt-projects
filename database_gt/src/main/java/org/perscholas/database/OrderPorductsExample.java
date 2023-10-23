@@ -1,4 +1,4 @@
-package database_gt.orgperscholas;
+package org.perscholas.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
