@@ -45,14 +45,33 @@ public class OrdersDatabase {
 
 	}
 	private void insertOrder() throws SQLException{
-	
+		// This is inserting static value
 		String sql = "insert into neworders (id,order_name,order_type,order_by,status) values(101, 'Toshiba', 'laptop', 'getas','Shipped')";
+		String sql2 = "insert into neworders (order_name,order_type,order_by,status) values('Toshiba202', 'laptop', 'Metas','In Progress')";
+		String sql3 = "insert into neworders (order_name,order_type,order_by,status) values(?,?,?,?)";
 		
 		// For our sql operation we can use PreparedStatement which is an object that represents a pre-compiled SQL statement. 
 		// A SQL statement is pre-compiled and stored in a PreparedStatement object. 
 		// This object can then be used to efficiently execute this statement multiple times. 
 		
-		PreparedStatement preparedStatement = con.prepareStatement(sql);
+		PreparedStatement preparedStatement = con.prepareStatement(sql3);
+		//get input from the user
+		System.out.println("Enter order name:");
+		preparedStatement.setString(1, scanner.nextLine());
+		
+		System.out.println("Enter order type:");
+		preparedStatement.setString(2, scanner.nextLine());
+		
+		System.out.println("Enter order by:");
+		preparedStatement.setString(3, scanner.nextLine());
+		
+		System.out.println("Enter status:");
+		preparedStatement.setString(4, scanner.nextLine());
+		//Insert dynamic value
+				//		preparedStatement.setString(1, "MacPro");
+				//		preparedStatement.setString(2, "Laptop");
+				//		preparedStatement.setString(3, "Jhon");
+				//		preparedStatement.setString(4, "In Progress");
 		
 		//Next is to execute our query check the row count for SQL Data Manipulation
 		// Executes the SQL statement in this PreparedStatement object,which must be an SQL Data Manipulation Language (DML) statement, such as INSERT, UPDATE or DELETE; or an SQL statement that returns nothing,such as a DDL statement.
