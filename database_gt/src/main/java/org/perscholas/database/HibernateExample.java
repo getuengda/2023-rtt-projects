@@ -6,11 +6,13 @@ import java.util.List;
 import org.perscholas.database.dao.CustomerDAO;
 import org.perscholas.database.dao.OrderDAO;
 import org.perscholas.database.dao.OrderDetailDAO;
+import org.perscholas.database.dao.PaymentDAO;
 import org.perscholas.database.dao.ProductDAO;
 import org.perscholas.database.entity.Customer;
 import org.perscholas.database.entity.Order;
 import org.perscholas.database.entity.Product;
 import org.perscholas.database.entity.OrderDetail;
+import org.perscholas.database.entity.Payment;
 
 public class HibernateExample {
 
@@ -39,7 +41,11 @@ public class HibernateExample {
 		OrderDetailDAO orderDetailDao = new OrderDetailDAO();
 		OrderDetail orderDetail = orderDetailDao.findById(51);
 		System.out.println(orderDetail.getId() + " | " + orderDetail.getQuantityOrdered());
-
+		
+		// Payment
+		PaymentDAO paymentDao = new PaymentDAO();
+		Payment payment = paymentDao.findById(129);
+		System.out.println(payment.getId() + " | " + payment.getAmount());
 	}
 
 }

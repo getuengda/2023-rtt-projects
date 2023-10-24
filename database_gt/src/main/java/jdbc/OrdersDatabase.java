@@ -41,7 +41,8 @@ public class OrdersDatabase {
 			case 2: 
 				orderDatabase.selectOrder();
 				break;	
-				default:
+				
+			default:
 					break;
 			}
 		}catch(Exception e) {
@@ -92,6 +93,8 @@ public class OrdersDatabase {
 		// second operation select from table
 		public void selectOrder() throws SQLException{
 			System.out.println("Select order is called");
+			
+			// Our query statement here
 			String sql = "select * from neworders where order_type = 'laptop'";
 			Statement stmt = con.createStatement();
 			ResultSet result = stmt.executeQuery(sql);
@@ -101,8 +104,7 @@ public class OrdersDatabase {
 				String orderName = result.getString("order_name");
 				String orderName2 = result.getString("order_name");
 				String orderType = result.getString("order_type");
-				System.out.println();
-				
+				System.out.println("My order name is " + orderName + " and type of the order is " + orderType);	
 			}
 			
 	}
