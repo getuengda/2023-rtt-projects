@@ -31,8 +31,10 @@ public class Order {
     // insertable and updatable to false
     // we need to do this because we now have a @Many-to-one annotation
     // this is working on the customer_id also
-    @Column(name = "customer_id", insertable = false, updatable= false)
+   
+    /*@Column(name = "customer_id", insertable = false, updatable= false)
     private Integer customerId;
+    */
     
     public Customer getCustomer() {
 		return customer;
@@ -83,14 +85,14 @@ public class Order {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+ /*
 	public Integer getCustomerId() {
 		return customerId;
 	}
 
 	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
-	}
+	}*/
 
 	public Date getOrderDate() {
 		return orderDate;

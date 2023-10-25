@@ -22,13 +22,14 @@ public class OrderDetail {
 		this.id = id;
 	}
 
-	public Integer getOrderId() {
+	/*public Integer getOrderId() {
 		return orderId;
 	}
 
 	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
+	*/
 
 	public Integer getProductId() {
 		return productId;
@@ -67,8 +68,8 @@ public class OrderDetail {
     @Column(name ="id")
 	private Integer id;
 	
-	@Column(name ="order_id", insertable = false, updatable= false)
-	private Integer orderId;
+	/*@Column(name ="order_id", insertable = false, updatable= false)
+	private Integer orderId;*/
 	
 	public Product getProduct() {
 		return product;

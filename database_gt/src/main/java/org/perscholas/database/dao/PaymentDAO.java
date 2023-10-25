@@ -1,5 +1,7 @@
 package org.perscholas.database.dao;
 
+import java.util.List;
+
 import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
@@ -21,5 +23,6 @@ public class PaymentDAO {
 		Payment result = query.getSingleResult();
 		return result;	
 	}
+	
 
 }

@@ -1,6 +1,7 @@
 package org.perscholas.database;
 
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ import org.perscholas.database.entity.Payment;
 
 public class HibernateExample {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		// Customer
 //		CustomerDAO customerDao = new CustomerDAO();
 //		Customer customer = customerDao.findById(103);
@@ -34,8 +35,9 @@ public class HibernateExample {
 //		System.out.println(product.getId() + " | " + product.getProductName());
 
 		// Order
-//		OrderDAO orderDao = new OrderDAO();
-//		orderDao.queryOrder();
+		OrderDAO orderDao = new OrderDAO();
+		orderDao.queryOrder();
+		orderDao.createorderIfNotExist();
 //		Order order = orderDao.findById(10358);
 //		System.out.println(order.getId() + " | " + order.getStatus());
 //		
