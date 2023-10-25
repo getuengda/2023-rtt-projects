@@ -16,6 +16,7 @@ import org.perscholas.database.entity.Customer;
 import org.perscholas.database.entity.Order;
 
 public class OrderDAO {
+	
 
 	public Order findById(Integer id) {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
@@ -55,28 +56,47 @@ public class OrderDAO {
 		return result;
 	}
 
-	public void createorder() throws ParseException, FileNotFoundException {
-		Order o = new Order();
-		
-		if(o.getId()!= null) {
+	public void createorderIfNotExist(){
+		OrderDAO orderDao = new OrderDAO();
+		//check if an order with the given Id already exists
+		int orderId = 1; // Set your desired order ID
+
+		try {
+		    // Check if an order with the given ID already exists
+		    Order existingOrder = orderDao.findById(orderId);
+
+		    if (existingOrder != null) {
+		        System.out.println("Order with ID " + orderId + " already exists.");
+		        return;
+		    }
+
+		    // Create a new order
+		    Order newOrder = new Order();
+
+		    // Set order dates
+		    Date orderDate = new Date();
+		    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		    Date requiredDate = sdf.parse("2023-10-31");
+
+		    newOrder.setOrderDate(orderDate);
+		    newOrder.setRequiredDate(requiredDate);
+		    newOrder.setShippedDate(requiredDate); // Shipped date set to null because the order has not yet shipped
+
+		    // Save the new order to the database
+		    orderDao.save(newOrder);
+		    System.out.println("Order with ID " + newOrder.getId() + " created successfully.");
+		} catch (ParseException e) {
+		    System.out.println("Error parsing date: " + e.getMessage());
+		    // Handle the exception (log it, show user-friendly message, etc.)
+		} catch (Exception e) {
+		    System.out.println("Error occurred: " + e.getMessage());
+		    // Handle other exceptions if necessary
 		}
-		// makes a new date object that represents right now Date orderDate = new
-		Date orderDate = new Date();
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date requiredDate = sdf.parse("2023-10-31");
-
-		// this is the # of mili-seconds since the epoch
-		System.out.println(orderDate.getTime());
-
-		o.setOrderDate(orderDate);
-		o.setRequiredDate(requiredDate);
-		o.setShippedDate(requiredDate);
-		// here we are setting the shipped date to null because the order has not //
-		// yet shipped order.setShippedDate(null);
+		
 	}
 	/////     
-	public void insertOrderIfCustomerIdExist(Integer customerId) throws ParseException{
+	public void insertOrderIfCustomerIdExist(Customer c) throws ParseException{
 		Date orderDate = new Date();
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -85,10 +105,10 @@ public class OrderDAO {
 		Date shippedDate = sdf.parse("2023-07-28");
 		
 		  // If the customer ID exists in the database, create a new order
-		  if (customerId != null) {
+		  if (c != null) {
 			Order new_o = new Order();
 			
-			new_o.setCustomerId(customerId);
+			new_o.setCustomer(c);
 			new_o.setOrderDate(new Date());
 			new_o.setRequiredDate(requiredDate);
 			new_o.setShippedDate(shippedDate);
