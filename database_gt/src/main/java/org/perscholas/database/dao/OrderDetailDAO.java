@@ -2,13 +2,14 @@ package org.perscholas.database.dao;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.perscholas.database.entity.Customer;
+
 import org.perscholas.database.entity.Order;
 import org.perscholas.database.entity.OrderDetail;
 import org.perscholas.database.entity.Product;
@@ -27,6 +28,26 @@ public class OrderDetailDAO {
 		OrderDetail result = query.getSingleResult();
 		return result;
 	}
+
+	public OrderDetail findByorderIdAndproductId(Integer orderId, Integer productId) {
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session session = factory.openSession();
+
+		String hql = "FROM OrderDetail od WHERE od.order.id = :orderId AND od.product.id = :productId";
+
+		TypedQuery<OrderDetail> query = session.createQuery(hql, OrderDetail.class);
+		query.setParameter("orderId", orderId);
+		query.setParameter("productId", productId);
+
+		try {
+			OrderDetail result = query.getSingleResult();
+			return result;
+		} catch (NoResultException nre) {
+			return null;
+		}
+
+	}
+
 	// Eric's Demo
 	public void save(OrderDetail orderDetail) {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
@@ -37,7 +58,7 @@ public class OrderDetailDAO {
 		t.commit();
 		session.close();
 	}
-	
+
 	// @ManyToOne relationship : OrderDetail table with Order
 	public void queryOrderDetail() {
 		OrderDetailDAO orderDetailDao = new OrderDetailDAO();
@@ -66,35 +87,34 @@ public class OrderDetailDAO {
 			System.out.println("OrderDetail with ID " + orderDetailId + " not found.");
 		}
 	}
-	
+
 	// @ManyToOne relationship : OrderDetail table with Order
-		public void queryProductDetail() {
-			OrderDetailDAO orderDetailDao = new OrderDetailDAO();
-			//int orderDetailId = 2984;
+	public void queryProductDetail() {
+		OrderDetailDAO orderDetailDao = new OrderDetailDAO();
+		// int orderDetailId = 2984;
 
-			// Retrieve the OrderDetail entity by its ID
-			OrderDetail orderDetail = orderDetailDao.findById(2984);
+		// Retrieve the OrderDetail entity by its ID
+		OrderDetail orderDetail = orderDetailDao.findById(2984);
 
-			// Check if the orderDetail exists
-			if (orderDetail != null) {
-				// Access the associated Order entity
-				Product product = orderDetail.getProduct();
+		// Check if the orderDetail exists
+		if (orderDetail != null) {
+			// Access the associated Order entity
+			Product product = orderDetail.getProduct();
 
-				// Print order detail associated with the product
-				System.out.println("OrderDetail " + orderDetail.getId() + " was made for order " + product.getProductCode()
-						+ " with quantity ordered: " + orderDetail.getQuantityOrdered());
+			// Print order detail associated with the product
+			System.out.println("OrderDetail " + orderDetail.getId() + " was made for order " + product.getProductCode()
+					+ " with quantity ordered: " + orderDetail.getQuantityOrdered());
 
-				// Access and print all the order details for the order
-				List<OrderDetail> orderDetails = product.getOrderdetail();
-				System.out.println("Product's orderdetails:");
-				for (OrderDetail orderDt : orderDetails) {
-					System.out.println(
-							"OrderDetail " + orderDt.getId() + " with quantity ordered: " + orderDt.getProduct());
-				}
-			} else {
-				System.out.println("OrderDetail with ID " + "orderDetailId" + " not found.");
+			// Access and print all the order details for the order
+			List<OrderDetail> orderDetails = product.getOrderdetail();
+			System.out.println("Product's orderdetails:");
+			for (OrderDetail orderDt : orderDetails) {
+				System.out
+						.println("OrderDetail " + orderDt.getId() + " with quantity ordered: " + orderDt.getProduct());
 			}
+		} else {
+			System.out.println("OrderDetail with ID " + "orderDetailId" + " not found.");
 		}
-		
+	}
 
 }
