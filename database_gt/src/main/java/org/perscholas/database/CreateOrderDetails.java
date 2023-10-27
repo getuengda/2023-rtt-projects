@@ -23,8 +23,9 @@ public class CreateOrderDetails {
 		System.out.println("Enter a product name to add to your order: ");
 		String productName = input.nextLine();
 
+		// TODO make the product name work with like .. so I Can enter a partial product name
 		// looks up a product by a productName
-		List<Product> products = productDao.findByName(productName);
+		List<Product> products = productDao.findProductByName(productName);
 
 //		if (products.size() == 0) {
 //			System.out.println("You did not enter a valid proper product name");
@@ -51,6 +52,7 @@ public class CreateOrderDetails {
 
 		// FIND THE SELECTED PRODUCTS
 		// the goal is to insert a record into the order details table
+		// TODO this should another check here to make sure that they product loaded is a product
 		Product selectedProduct = productDao.findById(productId);
 		if (selectedProduct == null) {
 			System.out.println("Invalid product Id.");
@@ -60,24 +62,20 @@ public class CreateOrderDetails {
 		// Ask the user what order number they want to add the product to
 		System.out.println("Enter the order ID to add the product:");
 		int orderId = input.nextInt();
-
+		
+		
+		// TODO add the ability to ask the user for an order number
 		// Find the order
 		Order o = orderDao.findById(orderId);
-
+		
+		// TODO if the order is null then print a message saying invalid order number
 		if (o == null) {
 			System.out.println("Invalid order ID.");
 			return;
 		}
+		
+		// TODO .... if the product is already part of the order details - 
 		// ask the user what order number they want to add the product too
-		// Order o = orderDao.findById(10100);
-
-		// if the product is already part of the order do not add it again
-//		for (OrderDetail orderDetail : o.getOrderdetail()) {
-//			if (orderDetail.getProduct().getId() == productId) {
-//				// the product is already part of the order
-//				System.out.println(
-//						"The product " + p.getProductName() + " is already part of the order. can not add again");
-//				System.exit(1);
 		// Check if the product is already part of the order
 		// if the product is already part of the order replay cannot add again
 		boolean productExistsInOrder = o.getOrderdetail().stream()
