@@ -26,14 +26,16 @@ public class ProductDAO {
 		return result;
 	}
 	
-	public List<Product> findByName(String name) {
+	
+	public List<Product> findProductByName(String partialProductName) {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		Session session = factory.openSession();
-
-		String hql = "FROM Product p WHERE productName = : productName"; // Example of HQL to get all records of user class
+		
+		String hql = "FROM Product p WHERE productName LIKE :partialName";
+		//String hql = "FROM Product p WHERE productName = : productName"; // Example of HQL to get all records of user class
 
 		TypedQuery<Product> query = session.createQuery(hql, Product.class);
-		query.setParameter("productName", name);
+		query.setParameter("partialName", "%" + partialProductName + "%");
 
 		//Product result = query.getSingleResult();
 		//return result;
