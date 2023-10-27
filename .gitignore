@@ -23,3 +23,4 @@
 hs_err_pid*
 replay_pid*
 database_gt/target/
+Junit-Examples/target/

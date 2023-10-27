@@ -12,10 +12,12 @@ import org.perscholas.database.entity.Customer;
 import org.perscholas.database.entity.Product;
 
 public class ProductDAO {
+	private SessionFactory factory = new Configuration().configure().buildSessionFactory();
+	private Session session = factory.openSession();
 	
 	public Product findById(Integer id) {
-		SessionFactory factory = new Configuration().configure().buildSessionFactory();
-		Session session = factory.openSession();
+		//SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		//Session session = factory.openSession();
 		
 		String hql = "FROM Product p WHERE p.id = ?1"; // Example of HQL to get all records of user class
 		
@@ -28,8 +30,8 @@ public class ProductDAO {
 	
 	
 	public List<Product> findProductByName(String partialProductName) {
-		SessionFactory factory = new Configuration().configure().buildSessionFactory();
-		Session session = factory.openSession();
+		//SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		//Session session = factory.openSession();
 		
 		String hql = "FROM Product p WHERE productName LIKE :partialName";
 		//String hql = "FROM Product p WHERE productName = : productName"; // Example of HQL to get all records of user class
@@ -45,8 +47,8 @@ public class ProductDAO {
 	}
 	
 	public void save ( Product product) { 
-		SessionFactory factory = new Configuration().configure().buildSessionFactory();
-		Session session = factory.openSession();
+		//SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		//Session session = factory.openSession();
 		
 		Transaction t = session.beginTransaction();
 		
