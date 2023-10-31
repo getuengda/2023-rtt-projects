@@ -83,34 +83,25 @@ public class CreateOrderDetails {
 			if (selectedProduct.getId().equals(orderDetail.getProduct().getId())) {
 				System.out.println("The product " + selectedProduct.getProductName()
 						+ " is already part of the order. Cannot add again.");
-				System.exit(1);
-		// because it required not null, we know that this product is already part of
-		// the order
+				// System.exit(1);
+				// because it required not null, we know that this product is already part of
+				// the order
 			}
 			OrderDetail queryOd = orderDetailDao.findByorderIdAndproductId(orderId, productId);
 			System.out.print("======> should not be null " + queryOd);
-		 if (queryOd != null) {
-				System.out.print("This product is alreay part of the order. Cannot add again!");
+			if (queryOd != null) {
+				// here I would increment the quantity ordered
+				System.out.println("This product is already part of the order.");
+				
 			}
-		// If not I would increment the quantity ordered
-		 if (queryOd == null) {
-			int quantity = input.nextInt();
-			queryOd.setQuantityOrdered(queryOd.getQuantityOrdered() + quantity);
-			orderDetailDao.save(queryOd);
-		 }
-//		 if (queryOd == null) {
-//				System.out.print("Enter the amount of quantity you want to oerder: ");
-//				int quantity = input.nextInt();
-//				while (quantity > 1) {
-//					for (int i = 0; i <= quantity; i++) {
-//						
-//						queryOd.setQuantityOrdered(queryOd.getQuantityOrdered() + quantity);
-//						orderDetailDao.save(queryOd);
-//						input.hasNext();
-//					}
-//				}
-//
-//			}
+			if (queryOd == null) {
+				System.out.println("How many additional would you like to order?");
+				int quantity = input.nextInt();
+				queryOd.setQuantityOrdered(queryOd.getQuantityOrdered() + quantity);
+				orderDetailDao.save(queryOd);
+				
+			}
+
 //		boolean productExistsInOrder = o.getOrderdetail().stream()
 //				.anyMatch(orderDetail -> orderDetail.getProduct().getId() == productId);
 //
