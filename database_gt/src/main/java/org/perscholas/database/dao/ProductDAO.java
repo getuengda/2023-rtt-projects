@@ -54,6 +54,7 @@ public class ProductDAO {
 		
 		session.saveOrUpdate(product);
 		t.commit();
+		session.close();
 	}
 
 }
