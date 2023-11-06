@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import jpa.entitymodels.Course;
-import jpa.entitymodels.Student;
 import jpa.service.CourseService;
 import jpa.service.StudentService;
 
@@ -88,7 +87,6 @@ public class SMSRunner {
 	}
 
 	private static void viewCourses(List<Course> courses) {
-		//System.out.println("COURSE ID COURSE NAME INSTRUCTOR NAME");
 		System.out.printf("%-15s%-27s%-17s%n", "COURSE ID", "COURSE NAME", "INSTRUCTOR NAME");
 		for (int i = 0; i < courses.size(); i++) {
 			Course course = courses.get(i);
