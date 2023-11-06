@@ -38,6 +38,10 @@ public class CourseService implements CourseDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		}finally {
+			if (session != null) {
+				session.close();
+			}
 		}
 	}
 
@@ -53,6 +57,10 @@ public class CourseService implements CourseDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		}finally {
+			if (session != null) {
+				session.close();
+			}
 		}
 	}
 

@@ -32,6 +32,10 @@ public class StudentService implements StudentDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		}finally {
+			if (session != null) {
+				session.close();
+			}
 		}
 	}
 
@@ -49,6 +53,10 @@ public class StudentService implements StudentDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		} finally {
+			if (session != null) {
+				session.close();
+			}
 		}
 
 	}
@@ -82,6 +90,10 @@ public class StudentService implements StudentDAO {
 	    	session.getTransaction().commit();
 	    }catch (Exception e) {
 			e.printStackTrace();	
+		} finally {
+			if (session != null) {
+				session.close();
+			}
 		}
 	}
 	
@@ -101,6 +113,10 @@ public class StudentService implements StudentDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		} finally {
+			if (session != null) {
+				session.close();
+			}
 		}
 
 	}
