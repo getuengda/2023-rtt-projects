@@ -220,7 +220,7 @@ body {
 }
 
 .star {
-    font-size: 24px;
+    font-size: 20px;
     color: #ffd700;
     cursor: pointer;
     margin-left: 1px;
@@ -269,14 +269,14 @@ body {
     color: hotpink; 
 }
 
-/* Common styles for smaller screens */
+/* media query for smaller screens */
 @media (max-width: 767px) {
     .about-me{
         flex-direction: column; 
     }
     .experience-skill {
         flex-direction: column;
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .profile-container {
@@ -317,6 +317,8 @@ body {
 
     .about-me-profile {
         order: 2; 
+        text-align: left;
+        white-space: normal;
     }
 
     .about-me-desc {
@@ -348,6 +350,13 @@ body {
     #photo-name {
         font-size: 12px; 
     }
+
+    .about-me-profile {
+        font-size: 8px;
+        text-align: left;
+        white-space: normal;
+    }
+
     .about-me-desc {
         margin-top: 2px;
     }
@@ -358,18 +367,24 @@ body {
 
     .class-1 h2,
     .class-2 h2 {
-        font-size: 8px;
+        font-size: 10px;
         width: 60%;
         height: 7px;
     }
+
+    .class-1 ul,
+    .class-2 ul {
+    font-size: 10px;
+    padding-left: 0.5rem;
+}
     .language-skill-lists li {
-        font-size: 12px; /* Further decrease font size for language skills */
-        display: flex; /* Display items in a column for smaller screens */
+        font-size: 12px; 
+        display: flex;
         flex-direction: column;
     }
 
     .rating {
-        font-size: 10px; /* Further decrease font size for stars/rating */
+        font-size: 10px;
     }
 }
 
@@ -383,16 +398,27 @@ body {
     #photo-name {
         font-size: 10px;
     }
+    .about-me-profile {
+        font-size: 5px;
+        text-align: left;
+        white-space: normal;
+    }
 
     #photo-profession {
         font-size: 8px; 
     }
+
+    #programming-header {
+        font-size: 8px;
+        width: 60%;
+        height: 7px;
+    }
     .language-skill-lists li {
-        font-size: 10px; /* Further decrease font size for language skills */
+        font-size: 10px; 
     }
 
     .rating {
-        font-size: 5px; /* Further decrease font size for stars/rating */
+        font-size: 5px; 
     }
 }
 
