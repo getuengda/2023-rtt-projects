@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+     @keyframes animatedBackground {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+  }
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(-45deg, #4caf50, #2196F3, #ff4081, #FFC107); /* Set gradient colors for the background */
+    background-size: 400% 400%; /* Set initial background size for animation */
+    animation: animatedBackground 10s linear infinite;
+    background-position: 0%;
+}
+
+.login-box {
+    background-color: rgb(216, 208, 208);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: -70px auto 20px auto; 
+    border: 2px solid #4caf50;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+input {
+    width:70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f6f2f2;
+}
+
+button {
+    background-color: #4c89af;
+    color: white;
+    padding: 10px 65px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #a04551;
+}
+
+.forgot-password {
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgb(165, 144, 8);
+    cursor: pointer;
+}
+
+    </style>
+<title>Login Page</title>
+</head>
+<body>
+    <div class="login-box">
+        <img class="profile-picture" src="../images/getu.jpg" alt="Profile Picture">
+        <h2>User Login</h2>
+        <form>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p class="forgot-password">Forget password?</p>
+    </div>
+</body>
+</html>
