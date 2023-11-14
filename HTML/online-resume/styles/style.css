@@ -78,6 +78,7 @@ body {
 .about-me-desc {
     color: grey;
     margin-top: 20px;
+    text-align: justify;
 }
 
 /* Angle Bracket Style for Headers */
@@ -95,6 +96,7 @@ body {
 .experience-detail li::before {
     content: ">";
     display: inline-block;
+    font-size:15px;
     margin-right: 5px;
     color: #00c3ff;
     background-color: white; 
@@ -102,22 +104,13 @@ body {
 }
 
 .experience-detail .year {
-    font-size: 80%;
+    font-size: 90%;
     color: #ccc;
     margin-left: 5px;
+    line-height: 1.5px;
 }
 
 /* Experience Detail Styles */
-/* .experience-detail h2 {
-    display: inline-block;
-    margin-bottom: 10px;
-    margin-left: 1rem;
-    padding: 10px;
-    border-radius: 5px;
-    position: relative;
-    background-color: #007bff;
-    color: white;
-} */
 
 .experience-detail h2 {
     display: inline-block;
@@ -129,8 +122,12 @@ body {
 
 .experience-detail ul {
     list-style-type: none; 
-    padding-left:5px;
+    padding-left: 5px;
+    padding-right: 40px;
     margin-left: 1.0rem;
+    margin-top: 0.5px;
+    margin-bottom: 0.5px;
+    text-align: justify;
 }
 
 /* Experience and Skill Section Styles */
@@ -150,7 +147,6 @@ body {
     flex: 1;
 }
 
-/* .class-1 ul, */
 .class-2 ul {
     list-style-type: none;
     padding: 0;
@@ -219,20 +215,16 @@ body {
     align-items: center;
 }
 
+.rating input:checked+label,
 .star {
     font-size: 20px;
     color: #ffd700;
     cursor: pointer;
     margin-left: 1px;
-    /* margin-right: 1px; */
 }
 
 .rating input {
     display: none;
-}
-
-.rating input:checked+label {
-    color: #ffd700;
 }
 
 .progress-bar-container {
@@ -267,6 +259,17 @@ body {
 
 .social-icons a:hover {
     color: hotpink; 
+    text-shadow: 
+    0 0 5px #b0b659,
+    0 0 10px #b65959,
+    0 0 15px #b66759,
+    0 0 20px #db6034,
+    0 0 25px #ff2a00,
+    0 0 30px #db6c34,
+    0 0 40px #ff2a00,
+    0 0 50px #db6034,
+    0 0 60px #b66759,
+    0 0 70px #b65959;
 }
 
 /* media query for smaller screens */
@@ -306,6 +309,12 @@ body {
         height: 7px;
     }
 
+    .class-1 ul,
+    .class-2 ul {
+    font-size: 12px;
+    padding-left: 0.5rem;
+    }
+
     .label {
         margin-right: 4px; 
     }
@@ -323,7 +332,9 @@ body {
 
     .about-me-desc {
         margin-top: 5px;
+        text-align: justify;
     }
+
     .language-skill-lists li {
         font-size: 13px; 
     }
@@ -359,6 +370,8 @@ body {
 
     .about-me-desc {
         margin-top: 2px;
+        font-size: 12px;
+        text-align: justify;
     }
 
     #photo-profession {
@@ -376,7 +389,8 @@ body {
     .class-2 ul {
     font-size: 10px;
     padding-left: 0.5rem;
-}
+    }
+
     .language-skill-lists li {
         font-size: 12px; 
         display: flex;
@@ -404,13 +418,19 @@ body {
         white-space: normal;
     }
 
+    .about-me-desc {
+        margin-top: 2px;
+        font-size: 10px;
+        text-align: left;
+    }
+
     #photo-profession {
         font-size: 8px; 
     }
 
     #programming-header {
         font-size: 8px;
-        width: 60%;
+        width: 70%;
         height: 7px;
     }
     .language-skill-lists li {
