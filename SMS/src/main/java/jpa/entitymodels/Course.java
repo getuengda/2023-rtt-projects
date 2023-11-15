@@ -16,6 +16,20 @@ public class Course {
 
 	@Column(name = "instructor")
 	private String cInstructorName;
+	
+	// First constructor: no parameters, initializes every member to initial values
+    public Course() {
+        this.cId = 1; 
+        this.cName = "Data Structure"; 
+        this.cInstructorName = "Jhon Harris"; 
+    }
+
+ // Second constructor: initializes every private member with provided parameters
+    public Course(Integer cId, String cName, String cInstructorName) {
+        this.cId = cId;
+        this.cName = cName;
+        this.cInstructorName = cInstructorName;
+    }
 
 	public Integer getcId() {
 		return cId;
@@ -39,10 +53,6 @@ public class Course {
 
 	public void setcInstructorName(String cInstructorName) {
 		this.cInstructorName = cInstructorName;
-	}
-
-	public Course() {
-
 	}
 
 }

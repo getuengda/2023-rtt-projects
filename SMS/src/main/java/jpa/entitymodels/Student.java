@@ -1,5 +1,6 @@
 package jpa.entitymodels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -21,6 +22,21 @@ public class Student {
 
 	@Column(name = "password", insertable = false, updatable = false)
 	private String sPass;
+
+	// First constructor: no parameters, initializes every member to initial values
+    public Student() {
+        this.sEmail = "asdf"; 
+        this.sCourses = new ArrayList<>(); 
+        this.sName = "asdf";
+        this.sPass = "asdf"; 
+    }
+    // Second constructor: initializes every private member with provided parameters
+    public Student(String sEmail, List<Course> sCourses, String sName, String sPass) {
+        this.sEmail = sEmail;
+        this.sCourses = sCourses;
+        this.sName = sName;
+        this.sPass = sPass;
+    }
 
 	public String getsEmail() {
 		return sEmail;
@@ -52,9 +68,5 @@ public class Student {
 
 	public void setsPass(String sPass) {
 		this.sPass = sPass;
-	}
-
-	public Student() {
-
 	}
 }

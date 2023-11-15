@@ -1,0 +1,444 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0b0b0b;
+    border: 1px solid #ccc;
+    font-size: 14px;   
+}
+
+/* Container Styles */
+.container {
+    max-width: 800px;
+    height: auto;
+    color: white;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #323030;
+    border-radius: 10px;
+}
+
+/* Profile Styles */
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-left: 20px;
+    gap: 0.5rem;
+    margin-top: 20px;
+}
+
+/* About Me Section Styles */
+.about-me {
+    display: flex;
+    text-align: start;
+    font-size: 12px;
+}
+
+.about-me-photo {
+    display: flex;
+    flex-grow: 2;
+    align-items: center;
+    gap: 1rem;
+}
+
+#photo-name {
+    color: white;
+    font-size: large;
+}
+
+#photo-profession {
+    color: #007bff;
+    font-size: small;
+    margin-bottom: 5%;
+}
+
+.about-me-name {
+    flex: 2;
+    text-align: left;
+    margin-right: 5px;
+}
+
+.about-me-profile {
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 5px;
+    line-height: 1.5px;
+}
+
+#photo {
+    width: 90px;
+    height: 90px;
+}
+
+.label {
+    color: #007bff;
+    margin-right: 8px;
+}
+
+.about-me-desc {
+    color: grey;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+/* Angle Bracket Style for Headers */
+.experience-detail h2::before {
+    content: "▼";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25em;
+    color: #00c3ff;
+}
+
+/* Angle Bracket Style for lists */
+.experience-detail li::before {
+    content: ">";
+    display: inline-block;
+    font-size:15px;
+    margin-right: 5px;
+    color: #00c3ff;
+    background-color: white; 
+    padding: 0 3px; 
+}
+
+.experience-detail .year {
+    font-size: 90%;
+    color: #ccc;
+    margin-left: 5px;
+    line-height: 1.5px;
+}
+
+/* Experience Detail Styles */
+
+.experience-detail h2 {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.experience-detail ul {
+    list-style-type: none; 
+    padding-left: 5px;
+    padding-right: 40px;
+    margin-left: 1.0rem;
+    margin-top: 0.5px;
+    margin-bottom: 0.5px;
+    text-align: justify;
+}
+
+/* Experience and Skill Section Styles */
+.experience-skill {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1.5rem;
+    font-size: xx-small;
+}
+
+.class-1 {
+    flex: 3;
+}
+
+.class-2 {
+    flex: 1;
+}
+
+.class-2 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.class-1 h2,
+.class-2 h2 {
+    background-color: grey;
+    width: 90%;
+    height: 10px;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.class-1 ul,
+.class-2 ul {
+    font-size: 13px;
+    padding-left: 0.5rem;
+}
+
+/* Skill List Styles */
+.class-2 .skills-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.class-2 .skills-list li {
+    margin-bottom: 10px;
+}
+
+.class-2 .skills-list .skill-name {
+    display: inline-block;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.class-2 .skills-list .progress-bar-container {
+    height: 15px;
+    transition: width 0.5s ease-in-out;
+}
+.class-2 .skills-list .progress-bar{
+    height:15px;
+}
+
+/* Language Skill List Styles */
+.language-skill-lists {
+    list-style-type: none;
+    padding: 0;
+}
+
+.language-skill-lists li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.language-skill-name {
+    display: inline-block;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating input:checked+label,
+.star {
+    font-size: 20px;
+    color: #ffd700;
+    cursor: pointer;
+    margin-left: 1px;
+}
+
+.rating input {
+    display: none;
+}
+
+.progress-bar-container {
+    position: relative;
+    height: 15px;
+    background-color: #444;
+}
+
+.progress-bar {
+    height: 15px;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #007bff;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: hotpink; 
+    text-shadow: 
+    0 0 5px #b0b659,
+    0 0 10px #b65959,
+    0 0 15px #b66759,
+    0 0 20px #db6034,
+    0 0 25px #ff2a00,
+    0 0 30px #db6c34,
+    0 0 40px #ff2a00,
+    0 0 50px #db6034,
+    0 0 60px #b66759,
+    0 0 70px #b65959;
+}
+
+/* media query for smaller screens */
+@media (max-width: 767px) {
+    .about-me{
+        flex-direction: column; 
+    }
+    .experience-skill {
+        flex-direction: column;
+        font-size: 14px;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .about-me-name,
+    .about-me-profile {
+        text-align: left;
+        margin: 0; 
+    }
+
+    #photo-name {
+        font-size: 16px; 
+    }
+
+    #photo-profession {
+        font-size: 12px; 
+    }
+
+    .class-1 h2,
+    .class-2 h2 {
+        font-size: 13px;
+        width: 60%;
+        height: 7px;
+    }
+
+    .class-1 ul,
+    .class-2 ul {
+    font-size: 12px;
+    padding-left: 0.5rem;
+    }
+
+    .label {
+        margin-right: 4px; 
+    }
+
+    .about-me-photo {
+        order: 1; 
+        margin-top: 20px; 
+    }
+
+    .about-me-profile {
+        order: 2; 
+        text-align: left;
+        white-space: normal;
+    }
+
+    .about-me-desc {
+        margin-top: 5px;
+        text-align: justify;
+    }
+
+    .language-skill-lists li {
+        font-size: 13px; 
+    }
+
+    .language-skill-name {
+        width: auto; 
+        margin-right: 10px;
+    }
+
+    .rating {
+        font-size: 13px; 
+    }
+}
+
+/* Additional adjustments for smaller screens */
+@media (max-width: 300px) {
+    .about-me{
+        flex-direction: column; 
+    }
+    .about-me-photo {
+        flex-direction: column;
+        gap: 0.5rem; 
+    }
+    #photo-name {
+        font-size: 12px; 
+    }
+
+    .about-me-profile {
+        font-size: 8px;
+        text-align: left;
+        white-space: normal;
+    }
+
+    .about-me-desc {
+        margin-top: 2px;
+        font-size: 12px;
+        text-align: justify;
+    }
+
+    #photo-profession {
+        font-size: 10px; 
+    }
+
+    .class-1 h2,
+    .class-2 h2 {
+        font-size: 10px;
+        width: 60%;
+        height: 7px;
+    }
+
+    .class-1 ul,
+    .class-2 ul {
+    font-size: 10px;
+    padding-left: 0.5rem;
+    }
+
+    .language-skill-lists li {
+        font-size: 12px; 
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rating {
+        font-size: 10px;
+    }
+}
+
+/* Further adjustments for even smaller screens */
+@media (max-width: 220px) {
+    .about-me-photo {
+        flex-direction: column;
+        gap: 0.2rem; 
+    }
+    
+    #photo-name {
+        font-size: 10px;
+    }
+    .about-me-profile {
+        font-size: 5px;
+        text-align: left;
+        white-space: normal;
+    }
+
+    .about-me-desc {
+        margin-top: 2px;
+        font-size: 10px;
+        text-align: left;
+    }
+
+    #photo-profession {
+        font-size: 8px; 
+    }
+
+    #programming-header {
+        font-size: 8px;
+        width: 70%;
+        height: 7px;
+    }
+    .language-skill-lists li {
+        font-size: 10px; 
+    }
+
+    .rating {
+        font-size: 5px; 
+    }
+}
+
