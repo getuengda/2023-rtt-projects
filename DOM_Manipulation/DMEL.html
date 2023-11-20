@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Activity: DOM Manipulation and Event Listeners 
+Create a single page with two boxes at the bottom of the page; these boxes should be 
+styled as chat windows, as described below.
+1) Chat windows let the user input a name and send a message. They include a recent messages area, and a submit button.
+ Once submitted, the message, along with the name, should be displayed in both chat windows.
+2) Do not manually create any HTML elements in your page; instead, use the document.createElement() 
+and element.appendChild() 
+or similar methods to add elements to your page. Your page should only consist of the html, head, and body 
+tags before executing your script.
+3) Do not use CSS to describe the presentation of pages; instead, use style property and the setAttribute() 
+or similar methods to manipulate your elements styles.
+4) The messages, along with the user name, should be displayed in the chat windows in order.
+5) Add mouse event listeners and handlers to the submit button on each chat window.
+6) Add keyboard event listeners and handlers to the text area on each chat window to submit the messages 
+ -->
+    <script>
+        // create chat window
+        let chatWindow1 = document.createElement("div");
+        let chatWindow2 = document.createElement("div");
+
+        // style chat window 
+        chatWindow1.style.width = "180px";
+        chatWindow1.style.height = "180px";
+        chatWindow1.style.border = "1px solid black";
+
+        chatWindow2.style.width = "180px";
+        chatWindow2.style.height = "180px";
+        chatWindow2.style.border = "1px solid black";
+
+        // create input element
+        let input1 = document.createElement("input");
+
+        let input2 = document.createElement("input");
+
+        // create button element
+        let button1 = document.createElement("button");
+        button1.style.height = "25px"
+        button1.style.width = "80px"
+        button1.style.backgroundColor = "grey"
+        
+
+        let button2 = document.createElement("button");
+        button2.style.height = "25px"
+        button2.style.width = "80px"
+        button2.style.backgroundColor = "grey"
+
+        // create message area element
+        let messageArea1 = document.createElement("div");
+        let messageArea2 = document.createElement("div");
+
+        // create text content for the button
+        let labletext = document.createElement("p");
+        labletext.textContent = "Enter";
+        labletext.style.color = "white"
+        labletext.style.margin = "5px"
+
+        // Append label to button
+        button1.appendChild(labletext);
+        button2.appendChild(labletext.cloneNode(true));
+
+        // Append elements to chat windows
+        chatWindow1.appendChild(input1);
+        chatWindow1.appendChild(button1);
+        chatWindow1.appendChild(messageArea1);
+
+        chatWindow2.appendChild(input2);
+        chatWindow2.appendChild(button2);
+        chatWindow2.appendChild(messageArea2);
+
+        // Append chat windows to body
+        document.body.appendChild(chatWindow1);
+        document.body.appendChild(chatWindow2);
+
+        // Add event listeners
+        button1.addEventListener('click', function(){
+            let message = document.createElement("p");
+            message.textContent = input1.value;
+            messageArea1.appendChild(message);
+            messageArea2.appendChild(message.cloneNode(true));
+        })
+
+        button2.addEventListener('click', function(){
+            let message = document.createElement("p");
+            message.textContent = input2.value;
+            messageArea1.appendChild(message.cloneNode(true));
+            messageArea2.appendChild(message);
+        })
+
+        input1.addEventListener('keydown', function(e){
+            if(e.key === "Enter"){
+                let message = document.createElement("p");
+                message.textContent = input1.value;
+                messageArea1.appendChild(message);
+                messageArea2.appendChild(message.cloneNode(true));
+            }
+        })
+
+        input2.addEventListener('keydown', function(e){
+            if(e.key === 'Enter'){
+                let message = document.createElement("p");
+                message.textContent = input2.value;
+                messageArea1.appendChild(message.cloneNode(true));
+                messageArea2.appendChild(message);
+            }
+        })
+    </script>
+</body>
+</html>
+
