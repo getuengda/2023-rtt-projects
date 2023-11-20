@@ -1,0 +1,94 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <header id="main-header">
+      <div class="container">
+      <h1 id="header-title">Selecting Elements By Name</h1>
+An ID should be unique within a page. However, if more than one element with the specified ID exists, the getElementById() method returns the first element in the source code.</div>
+    </header>
+    <div>getElementsByName() will also return elements that have an id attribute with the specified value. For compatibility, you should be careful not to use the same string as both a name and an id.</div>
+    <input type="text" name="inputText"/>
+    <input type="text" name="inputText"/>
+    <script>
+      let items = document.getElementsByName("inputText");
+      for (const itemsKey in items) {
+        console.log(items[itemsKey])
+      }
+    </script>
+    <script src="./dom_demo.js"></script>
+  </body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <h1>Inserting Nodes</h1>
+    <ul>
+      <li id="useless">Nothing to see here</li>
+    </ul>
+    <script>
+      const ul = document.querySelector('ul');
+      const newElement = document.createElement('li');
+    //   newElement.textContent = "node.appendChild(): Add a node as the last child of a parent element";
+      newElement.textContent = "node.appendChild(): Add a node as the last child of a parent element";
+      ul.appendChild(newElement);
+
+      const anotherElement = document.createElement('li');
+      anotherElement.textContent = "node.insertBefore(): Insert a node into the parent element before a specified sibling node";
+      ul.insertBefore(anotherElement, newElement);
+     
+      const uselessElemen = document.querySelector('#useless');
+      const aDifferentElement = document.createElement('li');
+      aDifferentElement.textContent ="node.replaceChild(): Replace an existing node with a new node";
+      ul.replaceChild(aDifferentElement, uselessElemen);
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <h1>Creating New Nodes</h1>
+    <ul>
+      <li>document.createElement(): Create a new element node.</li>
+      <li>document.createTextNode(): Create a new text node.</li>
+      <li>node.textContent: Get or set the text content of a node.</li>
+      <li>node.innerHTML: Get or set the HTML content of an element.</li>
+    </ul>
+    <script>
+      const newElement = document.createElement('p');
+      newElement.textContent = "We've created a new p element on the document by using the createElement() method. In order to add text to the element, we can use the textContent property.";
+      console.log(newElement);
+      newElement.innerHTML="The innerHTML property allows you to add <strong>HTML</strong> as well as text to an element."
+      console.log(newElement);
+      const newTextNode = document.createTextNode("It is also possible to create a text node with the createTextNode() method.");
+      console.log(newTextNode);
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <div id= "myDiv">Modifying Styles</div>
+    <script>
+      const div = document.querySelector('#myDiv');
+      // Edit the styles is with setAttribute()
+      div.setAttribute('style', 'text-align: center');
+      // Apply style to div directly.
+      div.style.backgroundColor= 'coral';
+      div.style.color= 'white';
+      div.style.height = '100px';
+      div.style.width = '100px';
+      div.style.border = '2px solid black';
+      // Make div into a circle and center the text
+      div.style.borderRadius = '50%';
+      div.style.display = 'flex';
+      div.style.justifyContent = 'center';
+      div.style.alignItems = 'center';
+    </script>
+  </body>
+</html> -->

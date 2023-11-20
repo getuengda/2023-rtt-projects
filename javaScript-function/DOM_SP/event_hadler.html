@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head><title>Events</title></head>
+  <body>
+    <!-- Option 1 -->
+    <!-- <button onclick={changeText()}>Click me</button>   -->
+    
+    <!-- Option 2 by addingEventListener() -->
+    <!-- addEventListener() takes two mandatory parameters — 
+        the event it is to be listening for, and the listener callback function.-->
+    <button>Click me</button>  
+    <p>Try to change me.</p>
+    <script>
+    const button = document.querySelector('button');
+      // Function to modify the text content of the paragraph
+      function changeText() {
+        const p = document.querySelector('p');
+        p.textContent = "Changed because of an inline event handler.";
+        button.textContent = 'I was clicked';
+        button.style.backgroundColor = "yellow"
+      }
+      button.addEventListener('click', changeText);
+      // Listen for click event 
+    </script>
+  </body>
+</html>

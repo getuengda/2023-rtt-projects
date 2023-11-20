@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // create chat window
+        let chatWindow1 = document.createElement("div");
+        let chatWindow2 = document.createElement("div");
+
+        // style chat window 
+        chatWindow1.style.width = "180px";
+        chatWindow1.style.height = "180px";
+        chatWindow1.style.border = "1px solid black";
+
+        chatWindow2.style.width = "180px";
+        chatWindow2.style.height = "180px";
+        chatWindow2.style.border = "1px solid black";
+
+        // create input element
+        let input1 = document.createElement("input");
+
+        let input2 = document.createElement("input");
+
+        // create button element
+        let button1 = document.createElement("button");
+        button1.style.height = "25px"
+        button1.style.width = "80px"
+        button1.style.backgroundColor = "grey"
+        
+
+        let button2 = document.createElement("button");
+        button2.style.height = "25px"
+        button2.style.width = "80px"
+        button2.style.backgroundColor = "grey"
+        // create message area element
+        let messageArea1 = document.createElement("div");
+        let messageArea2 = document.createElement("div");
+
+        // create text conten for the button
+        //let button1_label = document.createElement("label");
+        let labletext = document.createElement("p");
+        labletext.textContent = "Enter";
+        labletext.style.color = "white"
+        labletext.style.margin = "5px"
+
+        // Append label to button
+        button1.appendChild(labletext);
+        button2.appendChild(labletext.cloneNode(true));
+
+        // Append elements to chat windows
+        chatWindow1.appendChild(input1);
+        chatWindow1.appendChild(button1);
+        chatWindow1.appendChild(messageArea1);
+
+        chatWindow2.appendChild(input2);
+        chatWindow2.appendChild(button2);
+        chatWindow2.appendChild(messageArea2);
+
+        // Append chat windows to body
+        document.body.appendChild(chatWindow1);
+        document.body.appendChild(chatWindow2);
+
+        // Add event listeners
+        button1.addEventListener('click', function(){
+            let message = document.createElement("p");
+            message.textContent = input1.value;
+            messageArea1.appendChild(message);
+            messageArea2.appendChild(message.cloneNode(true));
+        })
+
+        button2.addEventListener('click', function(){
+            let message = document.createElement("p");
+            message.textContent = input2.value;
+            messageArea1.appendChild(message.cloneNode(true));
+            messageArea2.appendChild(message);
+        })
+
+        input1.addEventListener('keydown', function(e){
+            if(e.key === "Enter"){
+                let message = document.createElement("p");
+                message.textContent = input1.value;
+                messageArea1.appendChild(message);
+                messageArea2.appendChild(message.cloneNode(true));
+            }
+        })
+
+        input2.addEventListener('keydown', function(e){
+            if(e.key === 'Enter'){
+                let message = document.createElement("p");
+                message.textContent = input2.value;
+                messageArea1.appendChild(message.cloneNode(true));
+                messageArea2.appendChild(message);
+            }
+        })
+    </script>
+</body>
+</html>
+
