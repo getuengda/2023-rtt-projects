@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/login.css"/>
+    <title>StaffManagementWeb - Login</title>
+    <style>
+        /* this changes the border color if validation is successful */
+        .input-control.success input {
+            border-color: aqua;
+          }
+          
+          /* this changes the border color if validation is unsuccessful */
+          .input-control.error input {
+            border-color: #ff3860;
+          }
+          
+          .input-control .error {
+            color: #ff3860;
+            font-size: 9px;
+            height: 13px;
+          }
+    </style>
+    
+</head>
+<body>
+  <div class="header">
+    <div id="header">
+        <h1>Welcome to Staff Management Web Page</h1>
+    </div>
+  </div>
+   
+    <div class="container" id="loginBox login"> 
+        <section class="login-form">
+            <h1>Login</h1>
+            <hr>
+            <p>Login using your account information</p>
+            <br>
+          <form id="form" name="myForm_login">
+          <div class="input-control">
+          <img src="../images/user.svg"/>
+          <input id="username" name="username" type="text" placeholder="Username" pattern="^[a-zA-Z]+"
+                      title="Please start username with a letter from a-z" required/>
+          <div class="error"></div>
+          </div>
+          <div class="input-control">
+              <img src="../images/key.svg"/>
+          <input id="password" type="password" name="password" id="password" placeholder="Password" required/>
+          <div class="error"></div>
+          </div>
+      
+          <div class="checkbox-login" id="checkboxLogin">
+          <input type="checkbox" name="checkbox" id="checkbox"><label for="checkbox">Keep me logged in</label>
+          <button type="submit" onclick="login()">Login</button>
+          </div>
+          <br>
+          <br>
+          <hr>
+          <div id="login_validator"><p>Forget your <span style="color: darkcyan">Username</span> or <span style="color: darkcyan">Password?</span></p></div>
+          </form>
+        </section>
+          </div>
+    </div>
+    
+    <section class="footer">
+      <div class="socials">
+          <p id="footerP">
+            Copyright &copy; 2023 Staff Management Website - All rights reserved.
+          </p>
+        </div>
+  </section>
+  <script src="../js/login_input_validation.js"></script>
+  <script src="../js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+:root {
+  --base-color: #171717;
+  --secondary-color: #a1460e;
+  --action-color: #cc6d3d;
+  --layover-color: #d2e1f36c;
+  }
+
+  body {
+  margin: 0;
+  height: 125vh;
+  font-family: Arial, sans-serif;
+  background-image: url('https://cdn.wallpapersafari.com/22/70/oZCrvS.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--base-color);
+  background-blend-mode: screen;
+  
+  }
+
+  body::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(96, 89, 89, 0.5); 
+  z-index: 1;
+  }
+  
+  .container {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  }
+
+  .header{
+  background-size: cover;
+  width: 100%;
+  height: 15%;
+  order: 1;
+  top: 0;
+  border: 1px solid white;
+  background-size: cover;
+  background-color: var(--secondary-color);
+  }
+
+  .header, .staff, .footer {
+      padding: 20px;
+  }
+  
+  nav {
+  position: fixed;
+  top: 0;
+  transition: top 0.3s;
+  z-index: 100; 
+  padding: 1rem;
+  height: 20vh;
+  }
+
+  nav ul {
+      list-style-type: none;
+      padding: 0;
+  }
+
+  nav ul li {
+      display: inline;
+      margin-right: 10px;
+      justify-content: center;
+      align-items: center;
+      margin-left: 70px;
+  }
+
+  nav a {
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease-in-out;
+    }
+  
+    nav a:hover {
+        color: white;
+        text-shadow: 0 0 5px #b0b659, 0 0 10px #b65959, 0 0 15px #b66759,
+        0 0 20px #db6034, 0 0 35px #ff2a00, 0 0 40px #db6c34;
+    }
+
+  .staff{
+      order: 2;
+      width: 100%;
+      height: 800px;
+      background-size: cover;
+      margin-top: 1rem;
+      border: 1px solid white;
+      background-size: cover;
+      background-color: var(--base-color);
+  }
+
+  .footer{
+  width: 100%;
+  height: 10%;
+  order: 3;
+  margin-top: 1rem;
+  border: 1px solid white;
+  background-size: cover;
+  grid-area: footer;
+  background-color: var(--secondary-color);
+  background-blend-mode: screen;
+  }
+
+  a{
+      text-decoration: none;
+      color: grey;
+      margin-top: 100px;
+      height: 25px;
+      width: 15px;
+  }
+
+  a:hover {
+      opacity: 0.5;
+      color: red;
+      cursor: pointer;
+  } 
+
+  #footerP {
+      margin-top: 118px;
+  }
+
+  .socials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+  }
+
+  #infoTable {
+      width: 100%;
+      border-collapse: collapse;
+  }
+
+  #infoTable th, #infoTable td {
+      border: 1px solid rgb(84, 79, 79);
+      padding: 15px;
+      text-align: left;
+      color: white;
+  }
+
+  
+/* styles for screen sizes */
+@media screen and (max-width: 400px) {
+    h1 {
+        margin-top: 20px;
+        margin-bottom: 1px;
+         font-size: 14px;
+       }
+   
+       h5 {
+           font-size: 12px;
+       }
+   
+       nav ul li {
+           display: inline;
+           margin-right: 15px;
+           margin-left: 0px;
+       }
+     
+       nav a {
+         font-weight: 200;
+         font-size: 12px;
+         }
+     #departments {
+         height: 600px;
+     }
+     #category {
+         font-size: 14px;
+     }
+     #infoTable {
+         width: 60%;
+         padding: 12px;
+     }
+   
+     #infoTable th, #infoTable td {
+         text-align: left;
+         font-size: 6.5px;
+         padding: 8px;
+         
+     }
+}
+
+@media screen and (min-width: 401px) {
+    h1 {
+       margin-top: 20px;
+       margin-bottom: 1px;
+        font-size: 16px;
+      }
+  
+      h5 {
+          font-size: 14px;
+      }
+  
+      nav ul li {
+          display: inline;
+          margin-right: 15px;
+          margin-left: 0px;
+      }
+    
+      nav a {
+        font-weight: 100;
+        font-size: 12px;
+        }
+    #departments {
+        height: 600px;
+    }
+    #category {
+        font-size: 15px;
+    }
+    #infoTable {
+        width: auto;
+        padding: auto;
+    }
+  
+    #infoTable th, #infoTable td {
+        text-align: left;
+        font-size: 11px;
+        padding: 13px;
+        
+    }
+     
+      #footerP {
+        margin-top: 10px;
+        margin-left: 70px;
+      }
+  }
+  @media screen and (max-width: 599px) {
+    .header, .container, .footer {
+        padding: 0px;
+    }
+    h1 {
+        font-size: 18px;
+        margin-top: 30px;
+      }
+
+    h5 {
+        font-size: 15px;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+        margin-left: 1px;
+    }
+  
+    nav a {
+      font-weight: 300;
+      font-size: 14px;
+      }
+
+    .card img {
+        width: 80%vw;
+        height: 80%vh;
+    }
+  
+    .card-body {
+        padding: 5px;
+        height: 90%;
+    }
+
+    #footerP {
+        font-size: 14px;
+        padding-left: 35px;
+        margin-bottom: 60px;
+    }
+  }
+  /* Tablets and small desktops */
+   @media only screen and (min-width: 600px) and (max-width: 768px) {
+   
+    h1 {
+      font-size: 18px;
+    }
+
+    h5 {
+        font-size: 15px;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+        margin-left: 1px;
+    }
+  
+    nav a {
+      font-weight: 300;
+      font-size: 14px;
+      }
+
+    #infoTable {
+        width: 90%;
+    }
+  
+    #infoTable th, #infoTable td {
+        text-align: left;
+        font-size: 13px;
+    }
+     
+  }
+
+  @media only screen and (min-width: 769px) {
+
+    h1 {
+      font-size: 22px;
+    }
+
+    h5 {
+        font-size: 15px;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+        margin-left: 20px;
+    }
+  
+    nav a {
+      font-weight: 500;
+      font-size: 15px;
+      }
+  
+    #infoTable {
+        width: 95%;
+    }
+  
+    #infoTable th, #infoTable td {
+        text-align: left;
+        font-size: 15px;
+    }
+
+    #departments {
+        height: 1000px;
+    }
+  }
+
+  @media only screen and (min-width: 990px) {
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+        margin-left: 70px;
+    }
+  
+    nav a {
+      font-weight: 500;
+      font-size: 16px;
+      }
+  
+    #infoTable {
+        width: 95%;
+    }
+  
+    #infoTable th, #infoTable td {
+        text-align: left;
+        font-size: 16px;
+    }
+
+    #departments {
+        height: 1000px;
+    }
+  }

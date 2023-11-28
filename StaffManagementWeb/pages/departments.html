@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/departments.css">
+    <title>StaffManagementWeb - Departments</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+    <section class="header">
+            <nav>
+                <ul>
+                    <li><a href="../pages/home.html">Home</a></li>
+                    <li><a href="../pages/staff.html">Staff</a></li>
+                    <li><a href="../pages/departments.html">Departments</a></li>
+                    <li><a href="../pages/contact.html">Contact Us</a></li>
+                    <li><a href="../pages/login.html">Login</a></li>
+                    <li><a href="../pages/register.html">Register</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+              </nav>
+              <h1 style="color: black; text-align: center; padding-top: 2.5rem;">Welcome to Staff Management Website</h1>
+              <h5 style="color: black; text-align: center; padding-top: 1.5rem;">Department Page</h5>
+    </section>
+
+    <section class="card-container" id="departments">
+        
+            <div class="card" style="width: 18rem;">
+                <img src="../images/pexels-vanessa-loring-7869239.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Engineering Technology</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="../images/pexels-cottonbro-studio-6153739.jpg"  class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Artificial Inteligence</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="../images/pexels-pixabay-256381.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Cyber Security</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="../images/pexels-pixabay-159397.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Research and Development</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="../images/pexels-artem-podrez-5726803.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Green Technology</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="../images/pexels-alena-darmel-6940563.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Training</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="../images/pexels-anna-nekrashevich-6802048.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Project Management</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="../images/pexels-chokniti-khongchum-2280547.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Innovation</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                </div>
+            </div>
+    </section>
+    <section class="footer">
+        <div class="socials">
+            <p id="footerP">
+              Copyright &copy; 2023 Staff Management Website - All rights reserved.
+            </p>
+            <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+            <a href="https://www.twitter.com" class="fa fa-twitter"></a>
+            <a href="https://www.linkedin.com" class="fa fa-linkedin"></a>
+          </div>
+    </section>
+    </div>
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseover', () => {
+            card.style.transform = 'scale(1.05)';
+        });
+        card.addEventListener('mouseout', () => {
+            card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+    <script src="../js/logout.js"></script>
+</body>
+</html>
