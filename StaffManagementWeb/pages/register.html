@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../css/register.css">
+    <title>StaffManagementWeb - Register</title>
+    <style>
+        /* changes the border color if validation is successful */
+        .input-control.success input {
+            border-color: aqua;
+          }
+          
+          /* changes the border color if validation is unsuccessful */
+          .input-control.error input {
+            border-color: #ff3860;
+          }
+          
+          .input-control .error {
+            color: #ff3860;
+            font-size: 9px;
+            height: 13px;
+          }
+    </style>
+</head>
+<body>
+        <div id="header">
+            <h1>Welcome to Staff Management Web Page</h1>
+        </div>
+    <div class="container" id="register">
+        <section class="register-form">
+        <h1>Register: Staff Management</h1>
+        <hr>
+        <p>Please provide your information below</p>
+        <br>
+        <form id="form" name="myForm_register">
+        <div class="input-control">
+        <img src="../images/user.svg"/>
+        <input id="username" name="username" type="text" placeholder="Username" pattern="^[a-zA-Z]+"
+            title="Please start username with a letter from a-z" required/>
+        <div class="error"></div>
+        </div>
+        <div class="input-control">
+        <img src="../images/envelope.svg"/>
+        <input id="email" name="email" type="text" placeholder="Email"
+        title="please start with letter and follow name@mail.com" required/>
+        <div class="error"></div>
+        </div>
+      <div class="input-control">
+      <img src="../images/key.svg"/>
+      <input id="password" type="password" name="password" id="password" placeholder="Password" required/>
+      <div class="error"></div>
+      <img src="../images/key.svg"/>
+      <input id="password2" type="password" name="password2" id="password" placeholder="Repeat Password" required/>
+      <div class="error"></div>
+      </div>
+     <div class="checkbox-register">
+        <input type="checkbox" name="checkbox" id="checkbox"><label for="checkbox">I agree to the <span style="color: darkcyan;">Term of Use</span></label>
+        <div class="error"></div>
+        <button id="sub" type="submit">Register</button>
+    </div>
+        </form>
+    </section>
+    </div>
+    <script src="../js/register_input_validation.js"></script>
+    <script src="../js/register.js">
+    </script>
+
+    <footer>
+        <p>&copy; 2023 Staff Management Website</p>
+    </footer>
+</body>
+</html>
