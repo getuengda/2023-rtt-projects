@@ -170,11 +170,23 @@ img{
             margin-top: 40px;
           }
 
-        #footerP {
+        /* #footerP {
             font-size: 14px;
             padding-left: 115px;
             margin-bottom: 60px;
-        }
+        } */
+        .footer a{
+            text-decoration: none;
+            color: black;
+            margin-top: 40px;
+            height: 15px;
+            width: 15px;
+          }
+        
+         #footerP {
+            margin-top: 40px;
+            margin-bottom: 80px;
+          }
           
   }
 
@@ -207,9 +219,22 @@ img{
         
         }
     
-        #footerP {
+        /* #footerP {
             font-size: 14px;
             padding-left: 35px;
-        }
+        } */
+
+        .footer a{
+            text-decoration: none;
+            color: black;
+            margin-top: 40px;
+            height: 15px;
+            width: 15px;
+          }
+        
+         #footerP {
+            margin-top: 40px;
+            margin-bottom: 80px;
+          }
   
   }
