@@ -1,9 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../include/header.jsp"/>
-<h1>Create Customer</h1>
+
 <section>
+    <div class="bg-light2 pt-5 pb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="m-0">Create Customer</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light1 pt-5 pb-5">
     <div class="container">
-        <form method="get" action="/customer/createSubmit">
             <div class="mb-3">
                 <label for="firstName" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="firstNameHelp">

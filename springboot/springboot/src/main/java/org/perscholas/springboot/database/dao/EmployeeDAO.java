@@ -12,4 +12,7 @@ public interface EmployeeDAO extends JpaRepository<Employee, Long> {
 
     @Query("SELECT e FROM Employee e WHERE e.firstName = :firstName")
     List<Employee> findByFirstName(String firstName);
+
+    @Query("SELECT e FROM Employee e WHERE e.firstName LIKE :firstName or e.lastName LIKE :lastName")
+    List<Employee> findByLikeFirstNameOrLastName(String firstName, String lastName);
 }

@@ -14,8 +14,11 @@ public interface CustomerDAO<select, SELECT> extends JpaRepository<Customer, Lon
     @Query("SELECT c FROM Customer c WHERE c.firstName = :firstName")
     List<Customer> findByFirstName(String firstName);
 
-    @Query("SELECT c FROM Customer c WHERE c.firstName = :firstName or c.lastName = :lastName")
-    List<Customer> findByFirstNameOrLastName(@Param("firstName") String firstName, @Param("lastName") String lastName);
+//    @Query("SELECT c FROM Customer c WHERE c.firstName = :firstName or c.lastName = :lastName")
+//    List<Customer> findByFirstNameOrLastName(@Param("firstName") String firstName, @Param("lastName") String lastName);
+
+    @Query("SELECT c FROM Customer c WHERE c.firstName LIKE :firstName or c.lastName LIKE :lastName")
+    List<Customer> findByLikeFirstNameOrLastName(String firstName, String lastName);
 
 
 }

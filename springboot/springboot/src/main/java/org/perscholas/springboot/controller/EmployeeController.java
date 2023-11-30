@@ -6,6 +6,7 @@ import org.perscholas.springboot.database.entity.Employee;
 import org.perscholas.springboot.formbean.CreateEmployeeFormBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -65,21 +66,48 @@ public class EmployeeController {
         return response;
     }
 
-    @GetMapping("/employee/search")
-    public ModelAndView search(@RequestParam(required = false) String search){
-        ModelAndView response = new ModelAndView("/employee/search");
-        log.debug("In the employee search controller method : search parameter = " + search);
+//    @GetMapping("/employee/search")
+//    public ModelAndView search(@RequestParam(required = false) String search){
+//        ModelAndView response = new ModelAndView("/employee/search");
+//        log.debug("In the employee search controller method : search parameter = " + search);
+//
+//        if(search != null){
+//            List<Employee> employees = employeeDao.findByFirstName(search);
+//            response.addObject("employeeVar", employees);
+//            response.addObject("search", search);
+//
+//            for(Employee employee : employees){
+//                log.debug("employee : id= " + employee.getId() + " first name = " + employee.getFirstName());
+//            }
+//        }
+//
+//       return response;
+//    }
 
-        if(search != null){
-            List<Employee> employees = employeeDao.findByFirstName(search);
+    @GetMapping("/employee/search")
+    public ModelAndView search(@RequestParam(required = false) String firstName,
+                               @RequestParam(required = false) String lastName){
+        ModelAndView response = new ModelAndView("/employee/search");
+
+        log.debug("In the employee search controller method firstName: " + firstName);
+        log.debug("In the employee search controller method lastName: " + lastName);
+
+        if(!StringUtils.isEmpty(firstName) || !StringUtils.isEmpty(lastName)){
+            response.addObject("firstName", firstName);
+            response.addObject("lastName", lastName);
+
+            if(!StringUtils.isEmpty(firstName)){
+                firstName = "%" + firstName + "%";
+                lastName = "%" + lastName + "%";
+            }
+            List<Employee> employees = employeeDao.findByLikeFirstNameOrLastName(firstName, lastName);
             response.addObject("employeeVar", employees);
-            response.addObject("search", search);
 
             for(Employee employee : employees){
-                log.debug("employee : id= " + employee.getId() + " first name = " + employee.getFirstName());
+                log.debug("customer: id= " + employee.getId() + "first name = " + employee.getFirstName());
+                log.debug("customer: id= " + employee.getId() + "last name = " + employee.getLastName());
             }
         }
-
-       return response;
+        return response;
     }
 }
