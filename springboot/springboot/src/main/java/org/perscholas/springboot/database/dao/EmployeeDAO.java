@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface EmployeeDAO extends JpaRepository<Employee, Long> {
 
-    public Employee findById(int id);
+    @Query("SELECT e FROM Employee e WHERE e.id = :id")
+    public Employee findEmployeeById(Integer id);
 
     @Query("SELECT e FROM Employee e WHERE e.firstName = :firstName")
     List<Employee> findByFirstName(String firstName);
