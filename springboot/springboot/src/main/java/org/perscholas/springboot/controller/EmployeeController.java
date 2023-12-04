@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.perscholas.springboot.database.dao.EmployeeDAO;
 import org.perscholas.springboot.database.entity.Employee;
 import org.perscholas.springboot.formbean.CreateEmployeeFormBean;
+import org.perscholas.springboot.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -20,6 +21,23 @@ public class EmployeeController {
     @Autowired
     private EmployeeDAO employeeDao;
 
+    @GetMapping("/employee/find")
+    public ModelAndView find(@RequestParam(required = false) Integer id){
+        ModelAndView response = new ModelAndView("/employee/find");
+        log.debug("In the employee find controller method id: " + id);
+
+        if(id != null){
+            Employee employee = employeeDao.findEmployeeById(id);
+            response.addObject("id:", id);
+
+            if(employee != null){
+                response.addObject("employee", employee);
+            }else {
+                response.addObject("error", "No employee found with ID " + id);
+            }
+        }
+        return response;
+    }
     // Option One: using @RequestParam(required = false)
 //    @GetMapping("/customer/create")
 //    public ModelAndView createCustomer(@RequestParam(required = false) String firstName,
@@ -59,6 +77,7 @@ public class EmployeeController {
         employee.setDepartmentName(form.getDepartmentName());
 
         employeeDao.save(employee);
+
 
         //log.debug("In create customer with incoming args");
         log.info("In create employee with incoming args");
@@ -104,8 +123,8 @@ public class EmployeeController {
             response.addObject("employeeVar", employees);
 
             for(Employee employee : employees){
-                log.debug("customer: id= " + employee.getId() + "first name = " + employee.getFirstName());
-                log.debug("customer: id= " + employee.getId() + "last name = " + employee.getLastName());
+                log.debug("employee: id= " + employee.getId() + "first name = " + employee.getFirstName());
+                log.debug("employee: id= " + employee.getId() + "last name = " + employee.getLastName());
             }
         }
         return response;
