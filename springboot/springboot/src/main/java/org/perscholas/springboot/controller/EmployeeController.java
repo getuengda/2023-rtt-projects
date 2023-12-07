@@ -30,7 +30,7 @@ public class EmployeeController {
 
     @GetMapping("/employee/find")
     public ModelAndView find(@RequestParam(required = false) Integer id){
-        ModelAndView response = new ModelAndView("/employee/find");
+        ModelAndView response = new ModelAndView("employee/find");
         log.debug("In the employee find controller method id: " + id);
 
         if(id != null){
@@ -58,7 +58,7 @@ public class EmployeeController {
     public ModelAndView createEmployeeSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){
             log.info("###### In create employee submit #######");
-            ModelAndView response = new ModelAndView("/employee/create");
+            ModelAndView response = new ModelAndView("employee/create");
 
             for(ObjectError error : bindingResult.getAllErrors()){
                 log.info("error: " + error.getArguments());
@@ -70,7 +70,7 @@ public class EmployeeController {
             return response;
         }
 
-        ModelAndView response = new ModelAndView("/employee/create");
+        ModelAndView response = new ModelAndView("employee/create");
 
         employeeService.CreateEmployee(form);
 
@@ -100,7 +100,7 @@ public class EmployeeController {
     @GetMapping("/employee/search")
     public ModelAndView search(@RequestParam(required = false) String firstName,
                                @RequestParam(required = false) String lastName){
-        ModelAndView response = new ModelAndView("/employee/search");
+        ModelAndView response = new ModelAndView("employee/search");
 
         log.debug("In the employee search controller method firstName: " + firstName);
         log.debug("In the employee search controller method lastName: " + lastName);

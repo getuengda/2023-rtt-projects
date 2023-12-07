@@ -60,7 +60,7 @@ public class CustomerController {
 
     @GetMapping("/customer/create")
     public ModelAndView createCustomer() {
-        ModelAndView response = new ModelAndView("/customer/create");
+        ModelAndView response = new ModelAndView("customer/create");
         log.info("In create customer with no args");
         log.debug("In create customer with no args");
         return response;
@@ -71,7 +71,7 @@ public class CustomerController {
 
         if(bindingResult.hasErrors()){
             log.info("In create customer submit");
-            ModelAndView response = new ModelAndView("/customer/create");
+            ModelAndView response = new ModelAndView("customer/create");
 
             for(ObjectError error : bindingResult.getAllErrors()){
                 log.info("error: " + error.getArguments());
@@ -87,7 +87,7 @@ public class CustomerController {
         // the view name can either be a jsp file name or a redirect to another controller method
 
         ModelAndView response = new ModelAndView();
-        response.setViewName("redirect:/customer/edit/" + c.getId() + "?success=Customer Saved Successfully");
+        response.setViewName("redirect:customer/edit/" + c.getId() + "?success=Customer Saved Successfully");
 
         return response;
     }
@@ -96,7 +96,7 @@ public class CustomerController {
     @GetMapping("/customer/search")
     public ModelAndView search(@RequestParam(required = false) String firstName,
                                @RequestParam(required = false) String lastName) {
-        ModelAndView response = new ModelAndView("/customer/search");
+        ModelAndView response = new ModelAndView("customer/search");
 
         log.debug("In the customer search controller method firstName: " + firstName);
         log.debug("In the customer search controller method lastName: " + lastName);
