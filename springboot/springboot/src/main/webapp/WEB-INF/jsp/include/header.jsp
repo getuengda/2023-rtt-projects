@@ -36,8 +36,12 @@
                  </li>
 
                  <li class="nav-item">
-                     <a class="nav-link" href="/employee/search">Find Employee</a>
+                     <a class="nav-link" href="/employee/find">Find Employee</a>
                  </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="/auth/register">User Registration Employee</a>
+                 </li>
+
             </ul>
         </div>
     </div>

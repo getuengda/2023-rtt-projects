@@ -1,14 +1,18 @@
 package org.perscholas.springboot.controller;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.springboot.database.dao.EmployeeDAO;
 import org.perscholas.springboot.database.entity.Employee;
 import org.perscholas.springboot.formbean.CreateEmployeeFormBean;
-import org.perscholas.springboot.service.CustomerService;
+import org.perscholas.springboot.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,6 +24,9 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeDAO employeeDao;
+
+    @Autowired
+    EmployeeService employeeService;
 
     @GetMapping("/employee/find")
     public ModelAndView find(@RequestParam(required = false) Integer id){
@@ -38,70 +45,57 @@ public class EmployeeController {
         }
         return response;
     }
-    // Option One: using @RequestParam(required = false)
-//    @GetMapping("/customer/create")
-//    public ModelAndView createCustomer(@RequestParam(required = false) String firstName,
-//                                       @RequestParam(required = false) String lastName,
-//                                       @RequestParam(required = false) String phone,
-//                                       @RequestParam(required = false) String city) {
-//        ModelAndView response = new ModelAndView("customer/create");
-//
-//        System.out.println("firstName: " + firstName);
-//        System.out.println("lastName: " + lastName);
-//        System.out.println("phone: " + phone);
-//        System.out.println("city: " + city);
-//        return response;
-//    }
 
     @GetMapping("/employee/create")
     public ModelAndView createEmployee() {
         ModelAndView response = new ModelAndView("employee/create");
-        //log.debug("In create customer with no args");
         log.info("In create employee with no args");
         return response;
     }
 
-    // Option Two: using formBean
+
     @GetMapping("/employee/createSubmit")
-    public ModelAndView createEmployeeSubmit(CreateEmployeeFormBean form) {
+    public ModelAndView createEmployeeSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            log.info("###### In create employee submit #######");
+            ModelAndView response = new ModelAndView("/employee/create");
+
+            for(ObjectError error : bindingResult.getAllErrors()){
+                log.info("error: " + error.getArguments());
+            }
+
+            response.addObject("form", form);
+            response.addObject("errors", bindingResult);
+
+            return response;
+        }
+
         ModelAndView response = new ModelAndView("/employee/create");
 
-        System.out.println("firstName: " + form.getFirstName());
-        System.out.println("lastName: " + form.getLastName());
-        System.out.println("departmentName: " + form.getDepartmentName());
-
-
-        Employee employee = new Employee();
-        employee.setFirstName(form.getFirstName());
-        employee.setLastName(form.getLastName());
-        employee.setDepartmentName(form.getDepartmentName());
-
-        employeeDao.save(employee);
-
-
-        //log.debug("In create customer with incoming args");
-        log.info("In create employee with incoming args");
+        employeeService.CreateEmployee(form);
 
         return response;
     }
 
-//    @GetMapping("/employee/search")
-//    public ModelAndView search(@RequestParam(required = false) String search){
-//        ModelAndView response = new ModelAndView("/employee/search");
-//        log.debug("In the employee search controller method : search parameter = " + search);
-//
-//        if(search != null){
-//            List<Employee> employees = employeeDao.findByFirstName(search);
-//            response.addObject("employeeVar", employees);
-//            response.addObject("search", search);
-//
-//            for(Employee employee : employees){
-//                log.debug("employee : id= " + employee.getId() + " first name = " + employee.getFirstName());
-//            }
-//        }
-//
-//       return response;
-//    }
+    @GetMapping("/employee/edit/{employeeId}")
+    public ModelAndView editEmployee(@PathVariable Integer employeeId){
+        ModelAndView response = new ModelAndView("employee/create");
+
+        Employee employee = employeeDao.findEmployeeById(employeeId);
+
+        CreateEmployeeFormBean form = new CreateEmployeeFormBean();
+
+        if(employee != null){
+            form.setId(employee.getId());
+            form.setFirstName(employee.getFirstName());
+            form.setLastName(employee.getLastName());
+            form.setDepartmentName(employee.getDepartmentName());
+        }else{
+            log.warn("Customer with id " + employeeId + " was not found");
+        }
+        response.addObject("form", form);
+        return response;
+    }
 
     @GetMapping("/employee/search")
     public ModelAndView search(@RequestParam(required = false) String firstName,
