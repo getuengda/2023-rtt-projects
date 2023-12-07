@@ -3,6 +3,7 @@ package org.perscholas.springboot.service;
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.springboot.database.dao.CustomerDAO;
 import org.perscholas.springboot.database.entity.Customer;
+import org.perscholas.springboot.formbean.CreateCustomerFormBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,18 +14,25 @@ public class CustomerService {
     @Autowired
     private CustomerDAO customerDao;
 
-    public void createCustomer(){
+    public Customer createCustomer( CreateCustomerFormBean form){
 
-        Customer customer = new Customer();
-        customer.setFirstName(customer.getFirstName());
-        customer.setLastName(customer.getLastName());
-        customer.setPhone(customer.getPhone());
-        customer.setCity(customer.getCity());
+        log.info("id: " + form.getId());
+        log.info("firstName: " + form.getFirstName());
+        log.info("lastName: " + form.getLastName());
+        log.info("phone: " + form.getPhone());
+        log.info("city: " + form.getCity());
 
-        customerDao.save(customer);
+        Customer customer = customerDao.findById(form.getId());
 
+        if(customer == null){
+            customer = new Customer();
+        }
+
+        customer.setFirstName(form.getFirstName());
+        customer.setLastName(form.getLastName());
+        customer.setPhone(form.getPhone());
+        customer.setCity(form.getCity());
+
+       return (Customer) customerDao.save(customer);
     }
-
-
-
 }

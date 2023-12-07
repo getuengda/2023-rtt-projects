@@ -62,6 +62,7 @@
                                         <td>${employee.firstName}</td>
                                         <td>${employee.lastName}</td>
                                         <td>${employee.departmentName}</td>
+                                        <td><a href="/employee/edit/${employee.id}">Edit</a></td>
                                     </tr>
                                 </c:forEach>
                             </table>
