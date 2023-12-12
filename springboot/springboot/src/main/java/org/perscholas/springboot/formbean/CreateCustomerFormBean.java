@@ -29,4 +29,8 @@ public class CreateCustomerFormBean {
     @NotEmpty(message="First Name is required.")
     @Length(max= 45, message = "City must be less than 45 characters.")
     private String city;
+
+    private String imageUrl;
+
+    private Integer userId;
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CustomerDAO<select, SELECT> extends JpaRepository<Customer, Long> {
+public interface CustomerDAO extends JpaRepository<Customer, Long>  {
 
     public Customer findById(Integer id);
 
@@ -18,5 +18,7 @@ public interface CustomerDAO<select, SELECT> extends JpaRepository<Customer, Lon
     @Query("SELECT c FROM Customer c WHERE c.firstName LIKE :firstName or c.lastName LIKE :lastName")
     List<Customer> findByLikeFirstNameOrLastName(String firstName, String lastName);
 
+    @Query("SELECT c FROM Customer c WHERE c.userId = :userId")
+    List<Customer> findByUserId(Integer userId);
 
 }
