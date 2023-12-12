@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,9 +39,31 @@
                  <li class="nav-item">
                      <a class="nav-link" href="/employee/find">Find Employee</a>
                  </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="/auth/register">User Registration Employee</a>
-                 </li>
+                <sec:authorize access="!isAuthenticated()">
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/register">User Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/login">Login</a>
+                </li>
+            </sec:authorize>
+            <sec:authorize access="hasAnyAuthority('ADMIN')">
+                <li class="nav-item">
+                    <a class="nav-link" href="">Admin</a>
+                </li>
+            </sec:authorize>
+            <sec:authorize access="isAuthenticated()">
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/logout">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=""><sec:authentication property="principal.username" /></a>
+                </li>
+            </sec:authorize>
+             <li class="nav-item">
+                   <a class="nav-link"href="/admin/index">Secured Request</a>
+            </li>
+
 
             </ul>
         </div>
