@@ -59,6 +59,7 @@
                                     <td>Image</td>
                                     <td>Edit</td>
                                     <td>Detail</td>
+                                    <td>Upload</td>
                                 </tr>
                                 <c:forEach var="customer" items="${customerVar}">
                                     <tr>
@@ -73,6 +74,9 @@
                                         </td>
                                         <td>
                                             <a href="/customer/detail?id=${customer.id}">Detail</a>
+                                        </td>
+                                        <td>
+                                            <a href="/customer/fileupload?id=${customer.id}">Upload</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
