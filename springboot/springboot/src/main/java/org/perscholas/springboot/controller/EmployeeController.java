@@ -3,6 +3,7 @@ package org.perscholas.springboot.controller;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.springboot.database.dao.EmployeeDAO;
+import org.perscholas.springboot.database.entity.Customer;
 import org.perscholas.springboot.database.entity.Employee;
 import org.perscholas.springboot.formbean.CreateEmployeeFormBean;
 import org.perscholas.springboot.service.EmployeeService;
@@ -34,7 +35,7 @@ public class EmployeeController {
         log.debug("In the employee find controller method id: " + id);
 
         if(id != null){
-            Employee employee = employeeDao.findEmployeeById(id);
+            Employee employee = employeeDao.findById(id);
             response.addObject("id:", id);
 
             if(employee != null){
@@ -91,9 +92,30 @@ public class EmployeeController {
             form.setLastName(employee.getLastName());
             form.setDepartmentName(employee.getDepartmentName());
         }else{
-            log.warn("Customer with id " + employeeId + " was not found");
+            log.warn("Employee with id " + employeeId + " was not found");
+            response.setViewName("redirect:/error/404");
+            return response;
         }
         response.addObject("form", form);
+        return response;
+    }
+
+    @GetMapping("/employee/detail")
+    public ModelAndView employeeDetail(@RequestParam(required = false) Integer id) {
+        ModelAndView response = new ModelAndView("employee/detail");
+        log.debug("In the employee detail controller method id: " + id);
+
+        // Fetch single employee from the database by id
+        Employee employee = employeeDao.findById(id);
+
+        if (employee != null) {
+            response.addObject("employee", employee);
+        } else {
+            log.warn("Employee with id " + id + " not found");
+            response.setViewName("redirect:/error/404");
+            return response;
+        }
+
         return response;
     }
 
