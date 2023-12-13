@@ -159,6 +159,8 @@ public class CustomerController {
             response.addObject("customer", customer);
         } else {
             log.warn("Customer with id " + id + " not found");
+            response.setViewName("redirect:/error/404");
+            return response;
         }
 
         return response;
